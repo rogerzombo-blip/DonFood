@@ -1,4 +1,5 @@
 import { useCart } from '../../context/CartContext';
+import { useCheckout } from '../../context/CheckoutContext';
 import './Cart.css';
 
 const Cart = () => {
@@ -9,24 +10,16 @@ const Cart = () => {
         closeCart,
         updateQuantity,
         calculateTotals,
-        clearCart
     } = useCart();
+
+    const { openCheckout } = useCheckout();
 
     const formatPrice = (price) => `$${price.toFixed(2)}`;
     const totals = calculateTotals();
 
     const handleCheckout = () => {
         if (cart.length === 0) return;
-
-        // Create a stylish confirmation instead of a simple alert
-        const orderNumber = Math.random().toString(36).substring(2, 8).toUpperCase();
-        const message = deliveryMode === 'delivery'
-            ? `Order #${orderNumber} Confirmed! 🛵\nYour delicious meal will arrive in 30-45 minutes.`
-            : `Order #${orderNumber} Confirmed! 🏃\nYour food will be ready for pickup in 15-20 minutes.\nYou saved ${formatPrice(totals.discount)} with self-pickup!`;
-
-        alert(message);
-        clearCart();
-        closeCart();
+        openCheckout();
     };
 
     return (
@@ -121,7 +114,7 @@ const Cart = () => {
                             className="btn btn-primary checkout-btn"
                             onClick={handleCheckout}
                         >
-                            Confirm Order • {formatPrice(totals.total)}
+                            💳 Pay with Card • {formatPrice(totals.total)}
                         </button>
                     </div>
                 )}

@@ -1,0 +1,135 @@
+/* =========================================
+   STRIPE PAYMENT FORM STYLES
+   Official Stripe Elements styling
+   ========================================= */
+
+.stripe-payment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.payment-element-wrapper {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    transition: all 0.3s ease;
+}
+
+.payment-element-wrapper:focus-within {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+/* Payment Message */
+.payment-message {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 18px;
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: 12px;
+    color: #f87171;
+    font-size: 14px;
+}
+
+.message-icon {
+    font-size: 16px;
+}
+
+/* Submit Button */
+.stripe-submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 16px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.stripe-submit-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+}
+
+.stripe-submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.lock-icon {
+    font-size: 16px;
+}
+
+/* Button Spinner */
+.btn-spinner {
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Stripe Security Badge */
+.stripe-security-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 10px;
+}
+
+.powered-by {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stripe-logo {
+    width: 50px;
+    height: auto;
+    opacity: 0.6;
+    transition: opacity 0.2s ease;
+}
+
+.stripe-logo:hover {
+    opacity: 1;
+}
+
+/* Override Stripe Elements dark theme */
+.StripeElement {
+    background: transparent !important;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .payment-element-wrapper {
+        padding: 16px;
+    }
+
+    .stripe-submit-btn {
+        padding: 14px 20px;
+        font-size: 15px;
+    }
+}
